@@ -1,0 +1,14 @@
+include ':AdvancedAudioProcessing'
+include ':AdvancedStreaming'
+include ':AdvancedVideoProcessing'
+include ':CommonFeatures'
+include ':CommonTools'
+include ':DebugAndConfig'
+include ':KeyCenter'
+include ':Others'
+include ':Quickstart'
+include ':Scenes'
+include ':main'
+//todo --- fbEffect start
+include(":fbui")
+//todo --- fbEffect end

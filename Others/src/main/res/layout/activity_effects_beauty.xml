@@ -1,0 +1,755 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".effectsbeauty.EffectsBeautyActivity">
+
+    <im.zego.commontools.logtools.logLinearLayout
+        android:id="@+id/logView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true" />
+
+    <LinearLayout
+        android:id="@+id/roomIDAndStreamID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logView"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RoomID:0024 PublishStreamID:0024"
+            android:textColor="@color/black"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/roomStateTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Room state"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+        <TextView
+            android:id="@+id/roomState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+        <TextView
+            android:id="@+id/captureVideoBrightness"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <TextureView
+        android:id="@+id/textureView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/roomIDAndStreamID"
+        android:layout_alignParentBottom="true" />
+
+    <Button
+        android:id="@+id/startPublishButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:text="@string/start_publishing"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/buttonHide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/document"
+        android:layout_toRightOf="@id/startPublishButton"
+        android:text="Hide" />
+
+    <TextView
+        android:id="@+id/advancedTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/document"
+        android:background="@color/little_dark_grey"
+        android:text="@string/info"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/document"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/startPublishButton"
+        android:background="@color/little_dark_grey"
+        android:text="@string/document"
+        android:textColor="@color/blue"
+        android:textSize="12sp" />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/advancedTitle"
+        android:layout_below="@id/roomIDAndStreamID">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/effectsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="10dp">
+
+                <Switch
+                    android:id="@+id/effectsBeautySwitch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/enable_effects_beauty" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/effectsBeautySwitch"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/beauty_whiten"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/whitenValueTextView"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/effectsBeautySwitch"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="50"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <SeekBar
+                    android:id="@+id/whitenSeekBar"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/effectsBeautySwitch"
+                    android:layout_marginTop="10dp"
+                    android:layout_toLeftOf="@id/whitenValueTextView"
+                    android:max="100"
+                    android:min="0"
+                    android:progress="50" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/whitenSeekBar"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/beauty_rosy"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/rosyValueTextView"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/whitenSeekBar"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="50"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <SeekBar
+                    android:id="@+id/rosySeekBar"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/whitenSeekBar"
+                    android:layout_marginTop="10dp"
+                    android:layout_toLeftOf="@id/rosyValueTextView"
+                    android:max="100"
+                    android:min="0"
+                    android:progress="50" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rosySeekBar"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/beauty_smooth"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/smoothValueTextView"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rosySeekBar"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="50"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <SeekBar
+                    android:id="@+id/smoothSeekBar"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rosySeekBar"
+                    android:layout_marginTop="10dp"
+                    android:layout_toLeftOf="@id/smoothValueTextView"
+                    android:max="100"
+                    android:min="0"
+                    android:progress="50" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/smoothSeekBar"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/beauty_sharpen"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/sharpenValueTextView"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/smoothSeekBar"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="50"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <SeekBar
+                    android:id="@+id/sharpenSeekBar"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/smoothSeekBar"
+                    android:layout_marginTop="10dp"
+                    android:layout_toLeftOf="@id/sharpenValueTextView"
+                    android:max="100"
+                    android:min="0"
+                    android:progress="50" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="0dp">
+
+                <LinearLayout
+                    android:id="@+id/captureResolutionLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/encodeResolutionTitle2"
+                        android:layout_width="140dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center|left"
+                        android:text="@string/capture_resolution"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <EditText
+                        android:id="@+id/captureWidth"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/edit_round"
+                        android:inputType="number"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="5dp"
+                        android:text="360"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/xEncode2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="x"
+                        android:textSize="20dp" />
+
+                    <EditText
+                        android:id="@+id/captureHeight"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/edit_round"
+                        android:inputType="number"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="5dp"
+                        android:text="640"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/viewModeLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/videoConfigLayout"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/encodeResolutionTitle4"
+                        android:layout_width="140dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center|left"
+                        android:text="Mirror"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <Spinner
+                        android:id="@+id/spinnerMirrorMode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:entries="@array/mirrorMode" />
+
+                    <TextView
+                        android:id="@+id/encodeResolutionTitle3"
+                        android:layout_width="140dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center|left"
+                        android:text="ViewMode"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <Spinner
+                        android:id="@+id/spinnerViewMode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:entries="@array/viewMode" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/videoConfigLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/encodeCaptureLayout"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/videoFpsTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:gravity="center"
+                        android:text="@string/video_fps"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <EditText
+                        android:id="@+id/videoFps"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edit_round"
+                        android:inputType="number"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="5dp"
+                        android:text="15"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/videoBitrateTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:gravity="center|left"
+                        android:text="@string/video_bitrate"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <EditText
+                        android:id="@+id/videoBitrate"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="15dp"
+                        android:background="@drawable/edit_round"
+                        android:inputType="number"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="5dp"
+                        android:text="600"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/encodeCaptureLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/captureResolutionLayout"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/encodeResolutionTitle"
+                        android:layout_width="140dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center|left"
+                        android:text="@string/encode_resolution"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <EditText
+                        android:id="@+id/encodeResolutionWidth"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/edit_round"
+                        android:inputType="number"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="5dp"
+                        android:text="360"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/xEncode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="x"
+                        android:textSize="20dp" />
+
+                    <EditText
+                        android:id="@+id/encodeResolutionHeight"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/edit_round"
+                        android:inputType="number"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="5dp"
+                        android:text="640"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/AdaptiveCameraFPSLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/CameraLayout"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <Switch
+                        android:id="@+id/switchCameraAdaptiveFPS"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Adaptive FPS" />
+
+                    <TextView
+                        android:id="@+id/adaptiveFPSMinTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="min"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <EditText
+                        android:id="@+id/adaptiveFPSMinEdit"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edit_round"
+                        android:inputType="number"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="5dp"
+                        android:text="15"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/adaptiveFPSMaxTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="max"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <EditText
+                        android:id="@+id/adaptiveFPSMaxEdit"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edit_round"
+                        android:inputType="number"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="5dp"
+                        android:text="25"
+                        android:textSize="15sp" />
+
+                    <Button
+                        android:id="@+id/buttonUpdateAdaptiveFps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Done" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lowLightLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/AdaptiveCameraFPSLayout"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/LowlightTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="LowLightEnhancement"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <Spinner
+                        android:id="@+id/spinnerLowlightEnhancementMode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:entries="@array/lowLightEnhancementMode" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/CameraLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/viewModeLayout"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <Switch
+                        android:id="@+id/switchCamera"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Camera" />
+
+                    <TextView
+                        android:id="@+id/encodeResolutionTitle5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="@string/camera_selection"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+
+                    <Spinner
+                        android:id="@+id/spinnerCamera"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/cameraSelection" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="horizontal">
+
+                    <Switch
+                        android:id="@+id/switchColorEnhance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Color Enhance" />
+
+                    <Button
+                        android:id="@+id/buttonSnapshot"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:text="@string/take_publish_snapshot" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="intensity"
+                        android:textColor="@color/black" />
+
+                    <EditText
+                        android:id="@+id/editIntensity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@android:drawable/editbox_background"
+                        android:inputType="numberDecimal"
+                        android:text="0.0" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="skinToneProtectionLevel"
+                        android:textColor="@color/black" />
+
+                    <EditText
+                        android:id="@+id/editSkinLevel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@android:drawable/editbox_background"
+                        android:inputType="numberDecimal"
+                        android:text="1.0" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="lipColorProtectionLevel"
+                        android:textColor="@color/black" />
+
+                    <EditText
+                        android:id="@+id/editLipLevel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@android:drawable/editbox_background"
+                        android:inputType="numberDecimal"
+                        android:text="0.0" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textViewVideoDenoiseParams"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:text="VideoDenoiseParams"
+                        android:textColor="@color/black" />
+
+                    <Spinner
+                        android:id="@+id/spinnerVideoDenoiseMode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:entries="@array/videoDenoiseMode" />
+
+                    <Spinner
+                        android:id="@+id/spinnerVideoDenoiseStrength"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:entries="@array/videoDenoiseStrength" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/buttonDone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:text="Done" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="SetAppOrientation"
+                        android:textColor="@color/black" />
+
+                    <Spinner
+                        android:id="@+id/spinnerOrientation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:entries="@array/ZegoOrientation" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
