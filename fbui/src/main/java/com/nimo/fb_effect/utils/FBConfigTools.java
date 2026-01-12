@@ -62,7 +62,7 @@ public class FBConfigTools {
     PATH_MASK = FBEffect.shareInstance().getARItemPathBy(FBItemEnum.FBItemMask.getValue()) + File.separator + "fb_mask_config.json";
 
     //滤镜配置文件
-    PATH_BEAUTY_FILTER = FBEffect.shareInstance().getFilterPath() + File.separator + "fb_style_filter_config.json";
+    PATH_BEAUTY_FILTER = FBEffect.shareInstance().getFilterPath() + File.separator + "style_filter_config.json";
 
   }
 
