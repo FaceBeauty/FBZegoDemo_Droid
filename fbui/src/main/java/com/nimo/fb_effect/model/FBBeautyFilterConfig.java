@@ -78,6 +78,7 @@ public class FBBeautyFilterConfig {
 
       return FBEffect.shareInstance().getFilterUrl() + name + ".zip";
 
+
     }
 
     public String getName() { return name;}

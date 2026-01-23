@@ -6,14 +6,14 @@ public final class KeyCenter {
     // https://console.zego.im/dashboard
     // for example: 123456789L;
     //todo --- fbEffect start
-    private long _appID = 123456789;
+    private long _appID = 1416523558;
 
     // AppSign only meets simple authentication requirements.
     // If you need to upgrade to a more secure authentication method,
     // please refer to [Guide for upgrading the authentication mode from using the AppSign to Token](https://docs.zegocloud.com/faq/token_upgrade)
     // Developers can get AppSign from admin [console](https://console.zego.im/dashboard)
     // for example: "abcdefghijklmnopqrstuvwxyz0123456789abcdegfhijklmnopqrstuvwxyz01";
-    private String _appSign = "3*****************3";
+    private String _appSign = "fd42a4925f7a69b174cc0de836b7dd24219ca50f19b4caee57b3f1dbfa181343";
     //todo --- fbEffect end
     private static KeyCenter instance = new KeyCenter();
     private KeyCenter() {}
