@@ -27,7 +27,10 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.nimo.fb_effect.FBPanelLayout;
+import com.nimo.fb_effect.fragment.FBARMaskFragment;
+import com.nimo.fb_effect.fragment.FBARStickerFragment;
 import com.nimo.fb_effect.fragment.FBBeautyFragment;
+import com.nimo.fb_effect.fragment.LightMakeupFragment;
 
 import org.json.JSONObject;
 
@@ -81,15 +84,20 @@ public class CustomerVideoCaptureActivity extends AppCompatActivity {
     // To store whether the data source is camera.
     boolean isCamera = true;
     ZegoVideoCaptureCallback videoCapture = null;
+    private FBPanelLayout FBPanelLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_video_capture);
         //todo --- fbEffect start
+        FBPanelLayout = new FBPanelLayout(this).init(getSupportFragmentManager());
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        FBBeautyFragment beautyFragment = new FBBeautyFragment();
+        FBBeautyFragment beautyFragment = new FBBeautyFragment();//美颜-美型-滤镜
+//      LightMakeupFragment lightMakeup = new LightMakeupFragment();//轻彩妆
+//      FBARMaskFragment arMaskFragent = new FBARMaskFragment(); //面具
+//      FBARStickerFragment arStickerFragment = new FBARStickerFragment(); //贴纸
         fragmentTransaction.add(R.id.bottom_container, beautyFragment);
         fragmentTransaction.commit();
         //todo --- fbEffect end
