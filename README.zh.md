@@ -14,6 +14,7 @@
 下载完成后，打开工程
 - 将 AndroidManifest.xml 中的 **label** 和 build.gradle 中的 **applicationId** 分别替换为您的**应用名**和**包名**
 - 在`ZegoExpressExample\main\src\main\java\im\zego\expresssample\ui\MainActivity.java`中将 **YOUR_APP_ID** 替换成您的美颜**AppId**
+- **请至https://github.com/FaceBeauty/FaceBeautySDK_Android下载最新的fbui以及资源文件(fbeffect)**
 - 将fbui模块中的**assets**替换为您的**assets**
 - 编译，运行，日志搜索**init-status**可以查看相关日志
 - 具体执行步骤可以全局搜索 **//todo --- fbEffect** 进行查看

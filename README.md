@@ -14,6 +14,7 @@
 After downloading, open the  project
 - Replace the **label** in `AndroidManifest.xml` and **applicationId** in `build.gradle` with your **app name** and **package name**
 - Replace **YOUR_APP_ID** with your FaceBeauty **AppId** in `ZegoExpressExample\main\src\main\java\im\zego\expresssample\ui\MainActivity.java`
+- **Please go to https://github.com/FaceBeauty/FaceBeautySDK_Android Download the latest fbui and resource files (fbeffect)**
 - Replace the **assets** in the `fbui` module with your own **assets**
 - Compile and run, search the logs for **init-status** to view relevant log information
 - You can search for **//todo --- fbEffect** globally to see the detailed execution steps
